@@ -1,0 +1,67 @@
+Description: <short summary of the patch>
+ TODO: Put a short summary on the line above and replace this paragraph
+ with a longer explanation of this change. Complete the meta-information
+ with other relevant fields (see below for details). To make it easier, the
+ information below has been extracted from the changelog. Adjust it or drop
+ it.
+ .
+ securityonion-iso (20151016-1ubuntu1securityonion13) xenial; urgency=medium
+ .
+   * use new pinguybuilder package
+Author: Doug Burks <doug.burks@gmail.com>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- securityonion-iso-20151016.orig/sbin/so-iso-build
++++ securityonion-iso-20151016/sbin/so-iso-build
+@@ -35,15 +35,15 @@ echo "Installing packages, please wait..
+ apt -y install ubiquity-frontend-gtk &&
+ sed -i 's|Icon=ubiquity|Icon=/usr/share/securityonion/so.svg|g' /usr/share/applications/ubiquity.desktop
+ 
+-FILE="/etc/login.defs"
+-if ! grep "998" $FILE >/dev/null 2>&1; then
+-	echo "Reserving a UID and GID for casper..."
+-	cp $FILE /etc/login.defs.orig
+-	sed -i '/SYS_UID_MAX/a SYS_UID_MAX	998' $FILE
+-	sed -i '/SYS_GID_MAX/a SYS_GID_MAX	998' $FILE
+-fi
++#FILE="/etc/login.defs"
++#if ! grep "998" $FILE >/dev/null 2>&1; then
++#	echo "Reserving a UID and GID for casper..."
++#	cp $FILE /etc/login.defs.orig
++#	sed -i '/SYS_UID_MAX/a SYS_UID_MAX	998' $FILE
++#	sed -i '/SYS_GID_MAX/a SYS_GID_MAX	998' $FILE
++#fi
+ 
+-apt -y install securityonion-iso
++#apt -y install securityonion-iso
+ 
+ echo "Purging packages, please wait..."
+ apt -y purge rsyslog
+@@ -61,9 +61,9 @@ systemctl disable mysql
+ echo "Enabling securityonion service, please wait..."
+ systemctl enable securityonion.service
+ 
+-if ! dpkg -l |grep pinguybuilder >/dev/null 2>&1; then
+-	FILE="pinguybuilder_4.3-8_all-beta.deb"
+-	wget http://nchc.dl.sourceforge.net/project/pinguy-os/ISO_Builder/$FILE
+-	dpkg -i $FILE
+-	apt -f install
+-fi
++#if ! dpkg -l |grep pinguybuilder >/dev/null 2>&1; then
++#	FILE="pinguybuilder_4.3-8_all-beta.deb"
++#	wget http://nchc.dl.sourceforge.net/project/pinguy-os/ISO_Builder/$FILE
++#	dpkg -i $FILE
++#	apt -f install
++#fi

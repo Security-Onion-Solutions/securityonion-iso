@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Check to see if we are in the Live environment or Installed environment
+if mount |grep "^/cow on / type overlay (rw,relatime,lowerdir=//filesystem.squashfs,upperdir=/cow/upper,workdir=/cow/work)" > /dev/null; then
+	# Live environment
+	# Remove Setup icon
+	rm -f /home/*/Desktop/securityonion-setup.desktop
+else
+	# Installed environment
+	# Generate ssh keys
+	if [ ! -f /etc/ssh/ssh_host_dsa_key.pub ]; then
+		rm -f /etc/ssh/ssh_host_*
+		/usr/sbin/dpkg-reconfigure openssh-server
+	fi
+fi

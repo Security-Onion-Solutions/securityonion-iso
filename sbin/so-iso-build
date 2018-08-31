@@ -1,0 +1,93 @@
+#!/bin/bash
+
+[ -f /usr/sbin/so-common ] && . /usr/sbin/so-common
+
+echo
+
+echo "Continuing will generate an ISO image."
+echo
+echo "If the system reboots for updates, log back in and then restart the script."
+echo
+echo "Repeat until all updates are installed and it continues onto ISO generation."
+echo
+echo "Press Enter to continue or Ctrl-C to cancel."
+read input
+
+echo "Stopping services, please wait..."
+systemctl stop salt-master
+systemctl stop salt-minion
+systemctl stop mysql
+
+echo "Disabling services, please wait..."
+systemctl disable salt-master
+systemctl disable salt-minion
+systemctl disable mysql
+
+FILE="/etc/grub.d/42_color"
+if ! [ -f $FILE ]; then
+
+	echo "Configuring grub, please wait..."
+
+	# Create the file
+	cat << EOFEOF >> $FILE
+#!/bin/sh
+cat <<EOF
+set color_normal=white/black
+EOF
+EOFEOF
+
+	# Make it executable
+	chmod +x $FILE
+	
+	# Update GRUB config
+	update-grub
+
+fi
+
+echo "Updating existing packages, please wait..."
+/usr/sbin/soup
+apt -y install --install-recommends linux-generic-hwe-16.04 xserver-xorg-hwe-16.04
+
+echo "Installing Gnome desktop, please wait..."
+echo | /usr/sbin/so-desktop-gnome
+
+echo "Installing packages, please wait..."
+# Install the installer and set its icon to our Security Onion logo
+apt -y install pinguybuilder ubiquity-frontend-gtk &&
+sed -i 's|Icon=ubiquity|Icon=/usr/share/securityonion/so.svg|g' /usr/share/applications/ubiquity.desktop
+
+echo "Installing Docker containers, please wait..."
+/usr/sbin/so-elastic-download
+
+echo "Purging packages, please wait..."
+apt -y purge grub-legacy-ec2 humanity-icon-theme ippusbxd libdaemon0 libdleyna-core-1.0-3 libdouble-conversion1v5 open-vm-tools popularity-contest python3-cupshelpers realmd rsyslog signond
+apt-get clean
+apt-get autoclean
+
+echo "Stopping OSSEC, please wait..."
+service ossec-hids-server stop
+
+echo "Enabling securityonion service, please wait..."
+systemctl enable securityonion.service
+
+echo "Clearing username string from debconf, please wait..."
+echo "ubiquity passwd/username string" | debconf-set-selections
+
+echo "Cleaning up, please wait..."
+rm -rf /var/ossec/logs/alerts/*
+rm -rf /var/ossec/logs/archives/*
+rm -rf /var/ossec/logs/firewall/*
+truncate -s 0 /var/ossec/logs/ossec.log
+/var/ossec/bin/syscheck_control -z -u all
+grep "^root:" /etc/subuid > /etc/subuid.orig
+grep "^root:" /etc/subgid > /etc/subgid.orig
+mv /etc/subuid.orig /etc/subuid
+mv /etc/subgid.orig /etc/subgid
+rm /root/.bash_history
+sed -i 's|OSSEC_AGENT_ENABLED=yes|OSSEC_AGENT_ENABLED=no|g' /etc/nsm/securityonion.conf
+sed -i 's|BRO_ENABLED=yes|BRO_ENABLED=no|g' /etc/nsm/securityonion.conf
+rm -f /etc/apt/sources.list.d/doug-burks*
+rm -f /etc/apt/sources.list.d/securityonion-ubuntu-test*
+
+echo "Building ISO, please wait..."
+PinguyBuilder dist

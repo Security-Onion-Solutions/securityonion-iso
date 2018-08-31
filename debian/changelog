@@ -1,0 +1,155 @@
+securityonion-iso (20151016-1ubuntu1securityonion26) xenial; urgency=medium
+
+  * securityonion-iso: so-iso-build should install xserver-xorg-hwe-16.04 #1288 
+
+ -- Doug Burks <doug.burks@gmail.com>  Thu, 02 Aug 2018 16:06:42 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion25) xenial; urgency=medium
+
+  * remove extra repos 
+
+ -- Doug Burks <doug.burks@gmail.com>  Wed, 01 Aug 2018 14:49:04 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion24) xenial; urgency=medium
+
+  * securityonion-iso: so-iso-build should purge grub-legacy-ec2 #1287 
+
+ -- Doug Burks <doug.burks@gmail.com>  Wed, 01 Aug 2018 14:44:51 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion23) xenial; urgency=medium
+
+  * Issue 1280: securityonion-iso: remove pinguybuilder from control and install with so-iso-build 
+
+ -- Doug Burks <doug.burks@gmail.com>  Fri, 13 Jul 2018 10:50:25 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion22) xenial; urgency=medium
+
+  * disable services in /etc/nsm/securityonion.conf 
+
+ -- Doug Burks <doug.burks@gmail.com>  Fri, 15 Jun 2018 06:41:53 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion21) xenial; urgency=medium
+
+  * purge open-vm-tools 
+
+ -- Doug Burks <doug.burks@gmail.com>  Wed, 16 May 2018 16:37:43 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion20) xenial; urgency=medium
+
+  * clean /etc/subuid and /etc/subgid 
+
+ -- Doug Burks <doug.burks@gmail.com>  Wed, 16 May 2018 06:41:31 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion19) xenial; urgency=medium
+
+  * improve wording 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 15 May 2018 18:21:41 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion18) xenial; urgency=medium
+
+  * remove debconf username 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 15 May 2018 16:38:11 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion17) xenial; urgency=medium
+
+  * don't echo into soup 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 15 May 2018 10:55:53 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion16) xenial; urgency=medium
+
+  * update so-iso-build 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 15 May 2018 10:14:56 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion15) xenial; urgency=medium
+
+  * fix so-desktop-gnome reference 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 15 May 2018 09:29:32 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion14) xenial; urgency=medium
+
+  * improve so-iso-build 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 15 May 2018 08:26:25 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion13) xenial; urgency=medium
+
+  * use new pinguybuilder package 
+
+ -- Doug Burks <doug.burks@gmail.com>  Mon, 14 May 2018 18:30:27 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion12) xenial; urgency=medium
+
+  * install pinguy builder if not already installed 
+
+ -- Doug Burks <doug.burks@gmail.com>  Mon, 14 May 2018 16:41:21 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion11) xenial; urgency=medium
+
+  * disable mysql salt-master and salt-minion 
+
+ -- Doug Burks <doug.burks@gmail.com>  Mon, 14 May 2018 16:14:46 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion10) xenial; urgency=medium
+
+  * fix check for live environment 
+
+ -- Doug Burks <doug.burks@gmail.com>  Mon, 14 May 2018 15:36:17 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion9) xenial; urgency=medium
+
+  * apt -y purge 
+
+ -- Doug Burks <doug.burks@gmail.com>  Mon, 14 May 2018 15:25:43 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion8) xenial; urgency=medium
+
+  * add so-iso-boot 
+
+ -- Doug Burks <doug.burks@gmail.com>  Mon, 14 May 2018 15:18:06 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion7) xenial; urgency=medium
+
+  * add so-iso-build 
+
+ -- Doug Burks <doug.burks@gmail.com>  Mon, 14 May 2018 15:03:56 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion6) xenial; urgency=medium
+
+  * add securityonion-samples-bro 
+
+ -- Doug Burks <doug.burks@gmail.com>  Wed, 02 May 2018 15:17:48 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion5) xenial; urgency=medium
+
+  * add securityonion-desktop-gnome 
+
+ -- Doug Burks <doug.burks@gmail.com>  Wed, 02 May 2018 08:14:48 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion4) xenial; urgency=medium
+
+  * changed elsa to elastic and rebuild for xenial 
+
+ -- Doug Burks <doug.burks@gmail.com>  Sat, 28 Apr 2018 07:35:08 -0400
+
+securityonion-iso (20151016-1ubuntu1securityonion3) trusty; urgency=medium
+
+  * remove xplico 
+
+ -- Doug Burks <doug.burks@gmail.com>  Wed, 08 Nov 2017 13:22:36 -0500
+
+securityonion-iso (20151016-1ubuntu1securityonion2) trusty; urgency=medium
+
+  * add xplico 
+
+ -- Doug Burks <doug.burks@gmail.com>  Thu, 10 Dec 2015 16:05:19 -0500
+
+securityonion-iso (20151016-1ubuntu1securityonion1) trusty; urgency=low
+
+  * Initial release
+
+ -- Doug Burks <doug.burks@gmail.com>  Fri, 16 Oct 2015 12:37:55 -0400
