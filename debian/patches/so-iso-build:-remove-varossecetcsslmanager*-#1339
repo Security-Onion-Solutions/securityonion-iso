@@ -1,0 +1,59 @@
+Description: <short summary of the patch>
+ TODO: Put a short summary on the line above and replace this paragraph
+ with a longer explanation of this change. Complete the meta-information
+ with other relevant fields (see below for details). To make it easier, the
+ information below has been extracted from the changelog. Adjust it or drop
+ it.
+ .
+ securityonion-iso (20151016-1ubuntu1securityonion27) xenial; urgency=medium
+ .
+   * so-iso-build: remove /var/ossec/etc/sslmanager* #1339
+Author: Doug Burks <doug.burks@gmail.com>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- /dev/null
++++ securityonion-iso-20151016/README.md
+@@ -0,0 +1 @@
++# securityonion-iso
+--- securityonion-iso-20151016.orig/sbin/so-iso-build
++++ securityonion-iso-20151016/sbin/so-iso-build
+@@ -74,18 +74,27 @@ echo "Clearing username string from debc
+ echo "ubiquity passwd/username string" | debconf-set-selections
+ 
+ echo "Cleaning up, please wait..."
++# Remove ossec-authd cert and key
++# Wazuh's init script will regenerate them after ISO installation
++rm -f /var/ossec/etc/sslmanager*
++# Remove wazuh logs
+ rm -rf /var/ossec/logs/alerts/*
+ rm -rf /var/ossec/logs/archives/*
+ rm -rf /var/ossec/logs/firewall/*
+ truncate -s 0 /var/ossec/logs/ossec.log
++# Reset wazuh syscheck database
+ /var/ossec/bin/syscheck_control -z -u all
++# Reset /etc/subuid and /etc/subguid
+ grep "^root:" /etc/subuid > /etc/subuid.orig
+ grep "^root:" /etc/subgid > /etc/subgid.orig
+ mv /etc/subuid.orig /etc/subuid
+ mv /etc/subgid.orig /etc/subgid
++# Remove root bash history
+ rm /root/.bash_history
++# Disable ossec_agent and bro
+ sed -i 's|OSSEC_AGENT_ENABLED=yes|OSSEC_AGENT_ENABLED=no|g' /etc/nsm/securityonion.conf
+ sed -i 's|BRO_ENABLED=yes|BRO_ENABLED=no|g' /etc/nsm/securityonion.conf
++# Remove any non-stable repos
+ rm -f /etc/apt/sources.list.d/doug-burks*
+ rm -f /etc/apt/sources.list.d/securityonion-ubuntu-test*
+ 

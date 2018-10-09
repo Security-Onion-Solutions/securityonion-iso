@@ -1,3 +1,9 @@
+securityonion-iso (20151016-1ubuntu1securityonion27) xenial; urgency=medium
+
+  * so-iso-build: remove /var/ossec/etc/sslmanager* #1339 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 09 Oct 2018 15:01:35 -0400
+
 securityonion-iso (20151016-1ubuntu1securityonion26) xenial; urgency=medium
 
   * securityonion-iso: so-iso-build should install xserver-xorg-hwe-16.04 #1288 

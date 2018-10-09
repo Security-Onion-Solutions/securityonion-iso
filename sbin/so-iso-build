@@ -74,18 +74,27 @@ echo "Clearing username string from debconf, please wait..."
 echo "ubiquity passwd/username string" | debconf-set-selections
 
 echo "Cleaning up, please wait..."
+# Remove ossec-authd cert and key
+# Wazuh's init script will regenerate them after ISO installation
+rm -f /var/ossec/etc/sslmanager*
+# Remove wazuh logs
 rm -rf /var/ossec/logs/alerts/*
 rm -rf /var/ossec/logs/archives/*
 rm -rf /var/ossec/logs/firewall/*
 truncate -s 0 /var/ossec/logs/ossec.log
+# Reset wazuh syscheck database
 /var/ossec/bin/syscheck_control -z -u all
+# Reset /etc/subuid and /etc/subguid
 grep "^root:" /etc/subuid > /etc/subuid.orig
 grep "^root:" /etc/subgid > /etc/subgid.orig
 mv /etc/subuid.orig /etc/subuid
 mv /etc/subgid.orig /etc/subgid
+# Remove root bash history
 rm /root/.bash_history
+# Disable ossec_agent and bro
 sed -i 's|OSSEC_AGENT_ENABLED=yes|OSSEC_AGENT_ENABLED=no|g' /etc/nsm/securityonion.conf
 sed -i 's|BRO_ENABLED=yes|BRO_ENABLED=no|g' /etc/nsm/securityonion.conf
+# Remove any non-stable repos
 rm -f /etc/apt/sources.list.d/doug-burks*
 rm -f /etc/apt/sources.list.d/securityonion-ubuntu-test*
 

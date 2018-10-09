@@ -18,3 +18,4 @@ Issue-1280:-securityonion-iso:-remove-pinguybuilder-from-control-and-install-wit
 securityonion-iso:-so-iso-build-should-purge-grub-legacy-ec2-#1287
 remove-extra-repos
 securityonion-iso:-so-iso-build-should-install-xserver-xorg-hwe-16.04-#1288
+so-iso-build:-remove-varossecetcsslmanager*-#1339
