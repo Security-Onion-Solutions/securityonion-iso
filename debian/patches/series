@@ -19,3 +19,4 @@ securityonion-iso:-so-iso-build-should-purge-grub-legacy-ec2-#1287
 remove-extra-repos
 securityonion-iso:-so-iso-build-should-install-xserver-xorg-hwe-16.04-#1288
 so-iso-build:-remove-varossecetcsslmanager*-#1339
+so-iso-boot:-if-user-hasn't-run-Setup-yet,-copy-wallpaper-into-place-to-prompt-them-#1383

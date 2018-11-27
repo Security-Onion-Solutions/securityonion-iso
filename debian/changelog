@@ -1,3 +1,9 @@
+securityonion-iso (20151016-1ubuntu1securityonion28) xenial; urgency=medium
+
+  * If user hasn't run Setup yet, copy wallpaper into place to prompt them #1383 
+
+ -- Doug Burks <doug.burks@gmail.com>  Tue, 27 Nov 2018 16:09:09 -0500
+
 securityonion-iso (20151016-1ubuntu1securityonion27) xenial; urgency=medium
 
   * so-iso-build: remove /var/ossec/etc/sslmanager* #1339 

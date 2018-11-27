@@ -7,9 +7,15 @@ if mount |grep "^/cow on / type overlay (rw,relatime,lowerdir=//filesystem.squas
 	rm -f /home/*/Desktop/securityonion-setup.desktop
 else
 	# Installed environment
+
 	# Generate ssh keys
 	if [ ! -f /etc/ssh/ssh_host_dsa_key.pub ]; then
 		rm -f /etc/ssh/ssh_host_*
 		/usr/sbin/dpkg-reconfigure openssh-server
+	fi
+
+	# If user hasn't run Setup yet, copy wallpaper into place to prompt them
+	if ! grep -q "Security Onion" /etc/network/interfaces; then
+		cp /usr/share/securityonion/securityonion_setup.jpg /usr/share/securityonion/securityonion.jpg
 	fi
 fi
