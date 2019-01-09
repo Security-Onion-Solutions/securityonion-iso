@@ -22,3 +22,4 @@ so-iso-build:-remove-varossecetcsslmanager*-#1339
 so-iso-boot:-if-user-hasn't-run-Setup-yet,-copy-wallpaper-into-place-to-prompt-them-#1383
 so-iso-build:-wipe-ossec-syscheck-files-Security-Onion-Solutionssecurity-onion#1414
 so-iso-build:-disable-bro-and-ossec_agent-Security-Onion-Solutionssecurity-onion#1415
+comment-out-ossec-syscheck_control

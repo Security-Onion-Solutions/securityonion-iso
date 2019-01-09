@@ -83,7 +83,7 @@ rm -rf /var/ossec/logs/archives/*
 rm -rf /var/ossec/logs/firewall/*
 truncate -s 0 /var/ossec/logs/ossec.log
 # Reset wazuh syscheck database
-/var/ossec/bin/syscheck_control -z -u all
+#/var/ossec/bin/syscheck_control -z -u all
 DIR="/var/ossec"
 rm -f ${DIR}/var/db/.template.db* || true
 rm -f ${DIR}/var/db/global.db* || true
