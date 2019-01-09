@@ -1,3 +1,9 @@
+securityonion-iso (20151016-1ubuntu1securityonion30) xenial; urgency=medium
+
+  * so-iso-build: disable bro and ossec_agent Security-Onion-Solutions/security-onion#1415 
+
+ -- Doug Burks <doug.burks@gmail.com>  Wed, 09 Jan 2019 15:01:42 -0500
+
 securityonion-iso (20151016-1ubuntu1securityonion29) xenial; urgency=medium
 
   * so-iso-build: wipe ossec syscheck files Security-Onion-Solutions/security-onion#1414 

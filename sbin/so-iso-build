@@ -100,8 +100,16 @@ mv /etc/subgid.orig /etc/subgid
 # Remove root bash history
 rm /root/.bash_history
 # Disable ossec_agent and bro
-sed -i 's|OSSEC_AGENT_ENABLED=yes|OSSEC_AGENT_ENABLED=no|g' /etc/nsm/securityonion.conf
-sed -i 's|BRO_ENABLED=yes|BRO_ENABLED=no|g' /etc/nsm/securityonion.conf
+if grep -q "OSSEC_AGENT_ENABLED" /etc/nsm/securityonion.conf; then
+	sed -i 's|OSSEC_AGENT_ENABLED=yes|OSSEC_AGENT_ENABLED=no|g' /etc/nsm/securityonion.conf
+else
+	echo "OSSEC_AGENT_ENABLED=no" >> /etc/nsm/securityonion.conf
+fi
+if grep -q "BRO_ENABLED" /etc/nsm/securityonion.conf; then
+	sed -i 's|BRO_ENABLED=yes|BRO_ENABLED=no|g' /etc/nsm/securityonion.conf
+else
+	echo "BRO_ENABLED=no" >> /etc/nsm/securityonion.conf
+fi
 # Remove any non-stable repos
 rm -f /etc/apt/sources.list.d/doug-burks*
 rm -f /etc/apt/sources.list.d/securityonion-ubuntu-test*
