@@ -1,3 +1,9 @@
+securityonion-iso (20151016-1ubuntu1securityonion29) xenial; urgency=medium
+
+  * so-iso-build: wipe ossec syscheck files Security-Onion-Solutions/security-onion#1414 
+
+ -- Doug Burks <doug.burks@gmail.com>  Wed, 09 Jan 2019 14:28:58 -0500
+
 securityonion-iso (20151016-1ubuntu1securityonion28) xenial; urgency=medium
 
   * If user hasn't run Setup yet, copy wallpaper into place to prompt them #1383 

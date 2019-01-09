@@ -84,6 +84,14 @@ rm -rf /var/ossec/logs/firewall/*
 truncate -s 0 /var/ossec/logs/ossec.log
 # Reset wazuh syscheck database
 /var/ossec/bin/syscheck_control -z -u all
+DIR="/var/ossec"
+rm -f ${DIR}/var/db/.template.db* || true
+rm -f ${DIR}/var/db/global.db* || true
+rm -f ${DIR}/var/db/cluster.db* || true
+rm -f ${DIR}/var/db/.profile.db* || true
+rm -f ${DIR}/var/db/agents/* || true
+rm -f ${DIR}/queue/db/*.db*
+rm -f ${DIR}/queue/db/.template.db
 # Reset /etc/subuid and /etc/subguid
 grep "^root:" /etc/subuid > /etc/subuid.orig
 grep "^root:" /etc/subgid > /etc/subgid.orig
