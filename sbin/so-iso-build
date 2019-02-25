@@ -60,7 +60,7 @@ echo "Installing Docker containers, please wait..."
 /usr/sbin/so-elastic-download
 
 echo "Purging packages, please wait..."
-apt -y purge grub-legacy-ec2 humanity-icon-theme ippusbxd libdaemon0 libdleyna-core-1.0-3 libdouble-conversion1v5 open-vm-tools popularity-contest python3-cupshelpers realmd rsyslog signond
+apt -y purge grub-legacy-ec2 humanity-icon-theme ippusbxd libdaemon0 libdleyna-core-1.0-3 libdouble-conversion1v5 open-vm-tools php7.0-fpm popularity-contest python3-cupshelpers realmd rsyslog signond
 apt-get clean
 apt-get autoclean
 

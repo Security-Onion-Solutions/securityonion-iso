@@ -1,3 +1,9 @@
+securityonion-iso (20151016-1ubuntu1securityonion32) xenial; urgency=medium
+
+  * so-iso-build: purge php7.0-fpm Security-Onion-Solutions/security-onion#1463 
+
+ -- Doug Burks <doug.burks@gmail.com>  Mon, 25 Feb 2019 08:09:36 -0500
+
 securityonion-iso (20151016-1ubuntu1securityonion31) xenial; urgency=medium
 
   * comment out ossec syscheck_control 
