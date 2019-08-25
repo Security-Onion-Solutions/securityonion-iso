@@ -92,6 +92,9 @@ rm -f ${DIR}/var/db/.profile.db* || true
 rm -f ${DIR}/var/db/agents/* || true
 rm -f ${DIR}/queue/db/*.db*
 rm -f ${DIR}/queue/db/.template.db
+# so-iso-build: purge /var/ossec/queue/diff #1543
+# https://github.com/Security-Onion-Solutions/security-onion/issues/1543
+rm -rf ${DIR}/queue/diff/*
 # Reset /etc/subuid and /etc/subguid
 grep "^root:" /etc/subuid > /etc/subuid.orig
 grep "^root:" /etc/subgid > /etc/subgid.orig

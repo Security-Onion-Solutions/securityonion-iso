@@ -24,3 +24,4 @@ so-iso-build:-wipe-ossec-syscheck-files-Security-Onion-Solutionssecurity-onion#1
 so-iso-build:-disable-bro-and-ossec_agent-Security-Onion-Solutionssecurity-onion#1415
 comment-out-ossec-syscheck_control
 so-iso-build:-purge-php7.0-fpm-Security-Onion-Solutionssecurity-onion#1463
+so-iso-build:-purge-varossecqueuediff-Security-Onion-Solutionssecurity-onion#1543

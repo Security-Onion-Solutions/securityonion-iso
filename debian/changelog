@@ -1,3 +1,9 @@
+securityonion-iso (20151016-1ubuntu1securityonion33) xenial; urgency=medium
+
+  * so-iso-build: purge /var/ossec/queue/diff Security-Onion-Solutions/security-onion#1543 
+
+ -- Doug Burks <doug.burks@gmail.com>  Sun, 25 Aug 2019 07:47:06 -0400
+
 securityonion-iso (20151016-1ubuntu1securityonion32) xenial; urgency=medium
 
   * so-iso-build: purge php7.0-fpm Security-Onion-Solutions/security-onion#1463 
