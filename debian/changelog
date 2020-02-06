@@ -1,3 +1,9 @@
+securityonion-iso (20151016-1ubuntu1securityonion34) xenial; urgency=medium
+
+  * so-iso-build: downgrade chromium to 78.0.3904.108 
+
+ -- Doug Burks <doug.burks@gmail.com>  Thu, 06 Feb 2020 11:19:50 -0500
+
 securityonion-iso (20151016-1ubuntu1securityonion33) xenial; urgency=medium
 
   * so-iso-build: purge /var/ossec/queue/diff Security-Onion-Solutions/security-onion#1543 

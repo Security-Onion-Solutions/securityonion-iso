@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd /tmp
+wget https://github.com/Security-Onion-Solutions/chromium/releases/download/v78.0.3904.108/chromium-browser_78.0.3904.108-0ubuntu0.16.04.1_amd64.deb
+wget https://github.com/Security-Onion-Solutions/chromium/releases/download/chromium-browser-l10nv78.0.3904.108/chromium-browser-l10n_78.0.3904.108-0ubuntu0.16.04.1_all.deb
+wget https://github.com/Security-Onion-Solutions/chromium/releases/download/chromium-browser-ffmpeg-extrav78.0.3904.108/chromium-codecs-ffmpeg-extra_78.0.3904.108-0ubuntu0.16.04.1_amd64.deb
+dpkg -i chromium*78.0.3904.108*.deb
+rm chromium*78.0.3904.108*.deb
+cd - >/dev/null

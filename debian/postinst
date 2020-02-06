@@ -6,7 +6,7 @@ case "$1" in
     configure)
         
 	# Make scripts executable
-	for FILE in /usr/sbin/so-iso-build /usr/sbin/so-iso-boot; do
+	for FILE in /usr/sbin/so-iso-build /usr/sbin/so-iso-boot /usr/sbin/so-chromium-downgrade; do
 		chmod +x $FILE || echo "Unable to make $FILE executable!"
 	done
 
