@@ -64,9 +64,6 @@ apt -y purge grub-legacy-ec2 humanity-icon-theme ippusbxd libdaemon0 libdleyna-c
 apt-get clean
 apt-get autoclean
 
-echo "Fixing chromium, please wait.."
-/usr/sbin/so-chromium-downgrade
-
 echo "Stopping OSSEC, please wait..."
 service ossec-hids-server stop
 
