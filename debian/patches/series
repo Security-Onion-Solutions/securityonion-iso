@@ -26,3 +26,4 @@ comment-out-ossec-syscheck_control
 so-iso-build:-purge-php7.0-fpm-Security-Onion-Solutionssecurity-onion#1463
 so-iso-build:-purge-varossecqueuediff-Security-Onion-Solutionssecurity-onion#1543
 so-iso-build:-downgrade-chromium-to-78.0.3904.108
+securityonion-iso:-latest-chromium-browser-packages-#1721

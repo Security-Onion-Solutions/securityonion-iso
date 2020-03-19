@@ -1,3 +1,9 @@
+securityonion-iso (20151016-1ubuntu1securityonion35) xenial; urgency=medium
+
+  * securityonion-iso: latest chromium-browser packages #1721
+
+ -- Doug Burks <doug.burks@gmail.com>  Wed, 18 Mar 2020 20:06:06 -0400
+
 securityonion-iso (20151016-1ubuntu1securityonion34) xenial; urgency=medium
 
   * so-iso-build: downgrade chromium to 78.0.3904.108 
